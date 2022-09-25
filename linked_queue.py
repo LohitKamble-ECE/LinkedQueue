@@ -12,7 +12,6 @@ class LinkedQueue:
             """Create and initilize an object that can be used as node to build
             a singly linked list.
             Args:
-                self (Self): An object.
                 val (Any): The data object stored inside the node.
                 link (Self, optional): Reference to next node object in singly
                 linked list. Defaults to None.
@@ -24,7 +23,6 @@ class LinkedQueue:
         def _valid_link(cls: Type[Self], link: Self | None) -> bool:
             """Validate the link.
             Args:
-                cls (Type[Self]): A class object.
                 link (Self | None): This is link that need be validate. In order
                 link to be valid it need to be either LinkedStack._Node or None
                 type.
@@ -36,8 +34,6 @@ class LinkedQueue:
         @property
         def _link(self: Self) -> Self | None:
             """The property, reference to next node object.
-            Args:
-                self (Self): An object.
             Returns:
                 Self | None: Return the reference to next node object in singly
                 linked list if exists, None otherwise.
@@ -48,7 +44,6 @@ class LinkedQueue:
         def _link(self: Self, link: Self | None) -> None:
             """Mutate the property self._link before validating it.
             Args:
-                self (Self): An object
                 link (Self | None): Mutate property with this.
             Raises:
                 TypeError: If link is not valid. In order link to be valid it
@@ -72,11 +67,7 @@ class LinkedQueue:
             return f"<{cls_name} contains {self._val}>"
 
     def __init__(self: Self) -> None:
-        """Create an empty queue.
-
-        Args:
-            self (Self): An object.
-        """
+        """Create an empty queue."""
         self._head: LinkedQueue._Node | None = None  # Reference to the head node.
         self._tail: LinkedQueue._Node | None = None  # Reference to the tail node.
         self._size: int = 0  # Number of queue items.
@@ -86,9 +77,6 @@ class LinkedQueue:
 
         Time complexity: O(1)
 
-        Args:
-            self (Self): An object.
-
         Returns:
             int: Number of items in the queue.
         """
@@ -96,9 +84,6 @@ class LinkedQueue:
 
     def is_empty(self: Self) -> bool:
         """Return True when queue is emtpy, False otherwise.
-
-        Args:
-            self (Self): An object.
 
         Returns:
             bool: True when queue is emtpy, False otherwise.
@@ -111,7 +96,6 @@ class LinkedQueue:
         Time complexity: O(1)
 
         Args:
-            self (Self): An object.
             value (Any): The value that need to be added.
         """
         new_tail_node = self._Node(value)
@@ -126,9 +110,6 @@ class LinkedQueue:
         """Remove and return the first item of the queue (i.e. FIFO)
 
         Time complexity: O(1)
-
-        Args:
-            self (Self): An object.
 
         Raises:
             Exception: Trying to dequeue from empty queue.
@@ -149,9 +130,6 @@ class LinkedQueue:
         """Return (but do not remove) the item at the front of the queue.
 
         Time Complexity: O(1)
-
-        Args:
-            self (Self): An object.
 
         Raises:
             Exception: Trying to perform operation on empty queue.
