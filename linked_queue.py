@@ -80,3 +80,77 @@ class LinkedQueue:
         self._head: LinkedQueue._Node | None = None  # Reference to the head node.
         self._tail: LinkedQueue._Node | None = None  # Reference to the tail node.
         self._size: int = 0  # Number of queue items.
+
+    def __len__(self: Self) -> int:
+        """Return length of queue.
+
+        Args:
+            self (Self): An object.
+
+        Returns:
+            int: Number of items in the queue.
+        """
+        return self._size
+
+    def is_empty(self: Self) -> bool:
+        """Return True when queue is emtpy, False otherwise.
+
+        Args:
+            self (Self): An object.
+
+        Returns:
+            bool: True when queue is emtpy, False otherwise.
+        """
+        return self._head is None
+
+    def enqueue(self: Self, value: Any) -> None:
+        """Add an item to the back of queue.
+
+        Args:
+            self (Self): An object.
+            value (Any): The value that need to be added.
+        """
+        new_tail_node = self._Node(value)
+        if self._tail is None:  # Or self.is_empty()
+            self._head = new_tail_node  # Special case: previously empty
+        else:
+            self._tail._link = new_tail_node  # Link to the tail node
+        self._tail = new_tail_node  # Update referece to tail node
+        self._size += 1
+
+    def dequeue(self: Self) -> Any:
+        """Remove and return the first item of the queue (i.e. FIFO)
+
+        Args:
+            self (Self): An object.
+
+        Raises:
+            Exception: Trying to dequeue from empty queue.
+
+        Returns:
+            Any: The first item of the queue.
+        """
+        if self._head is None:
+            raise Exception("trying to dequeue in empty queue")
+        value = self._head._val  # The value that need be return.
+        self._head = self._head._link  # Update head to refer to next node.
+        self._size -= 1
+        if self._head is None:
+            self._tail = None  # Since no node present tail must be None.
+        return value
+
+    def first(self: Self) -> Any:
+        """Return (but do not remove) the item at the front of the queue.
+
+        Args:
+            self (Self): An object.
+
+        Raises:
+            Exception: Trying to perform operation on empty queue.
+
+        Returns:
+            Any: Return item at the front of the queue.
+        """
+        if self._head is None:
+            raise Exception("trying to return item from emtpy queue")
+        return self._head._val
