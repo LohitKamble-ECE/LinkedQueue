@@ -84,6 +84,8 @@ class LinkedQueue:
     def __len__(self: Self) -> int:
         """Return length of queue.
 
+        Time complexity: O(1)
+
         Args:
             self (Self): An object.
 
@@ -106,6 +108,8 @@ class LinkedQueue:
     def enqueue(self: Self, value: Any) -> None:
         """Add an item to the back of queue.
 
+        Time complexity: O(1)
+
         Args:
             self (Self): An object.
             value (Any): The value that need to be added.
@@ -120,6 +124,8 @@ class LinkedQueue:
 
     def dequeue(self: Self) -> Any:
         """Remove and return the first item of the queue (i.e. FIFO)
+
+        Time complexity: O(1)
 
         Args:
             self (Self): An object.
@@ -141,6 +147,8 @@ class LinkedQueue:
 
     def first(self: Self) -> Any:
         """Return (but do not remove) the item at the front of the queue.
+
+        Time Complexity: O(1)
 
         Args:
             self (Self): An object.
