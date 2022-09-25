@@ -70,3 +70,13 @@ class LinkedQueue:
             """
             cls_name = self.__class__.__name__
             return f"<{cls_name} contains {self._val}>"
+
+    def __init__(self: Self) -> None:
+        """Create an empty queue.
+
+        Args:
+            self (Self): An object.
+        """
+        self._head: Self | None = None  # Reference to the head node.
+        self._tail: Self | None = None  # Reference to the tail node.
+        self._size: int = 0  # Number of queue items.
